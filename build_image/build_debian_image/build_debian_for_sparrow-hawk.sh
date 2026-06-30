@@ -171,6 +171,9 @@ dd if=rootfs.ext4 of=${IMAGE_NAME} bs=512 seek=${SEEK} conv=notrunc
 gzip -f ./${IMAGE_NAME}
 
 echo "Cleanup"
+for mnt in $(findmnt --raw --noheadings --output TARGET | grep "^${CHROOT_DIR}" | sort -r); do
+    umount -l "$mnt" 2>/dev/null || true
+done
 rm -rf ${CHROOT_DIR} ./tmp rootfs.ext4
 
 echo "Finished"
