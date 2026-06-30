@@ -88,6 +88,7 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/build_deb
           ./build_all.sh
+          zip -ry -s 1900m ../build_deb.zip ../build_deb
 
       - name: Generate apt repo branch
         run: |
@@ -265,6 +266,7 @@ jobs:
           prerelease: ${{ env.PRERELEASE }}
           files: |
             ./build_image/build_debian_image/*.img.gz
+            ./build_deb.zip*
           body_path: ${{ github.workspace }}-release_msg.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
