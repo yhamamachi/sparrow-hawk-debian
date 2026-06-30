@@ -18,10 +18,9 @@ REPO_BRANCH=apt-repo
 BRANCH=${BRANCH:-$(git branch | grep '*' | cut -d' ' -f2)}
 EXTRA_APT_COMMON_CONF="arch=arm64 trusted=yes signed-by=/etc/apt/trusted.gpg.d/sparrow-hawk-repo.asc"
 EXTRA_APT_REPO="\
-# Repo list(main=stable, dev=development, next=release candidate)
+# Repo list(main=stable, dev=development)
 #deb [${EXTRA_APT_COMMON_CONF}] https://${REPO_OWNER}.github.io/sparrow-hawk-debian/main _CODENAME_ main
 #deb [${EXTRA_APT_COMMON_CONF}] https://${REPO_OWNER}.github.io/sparrow-hawk-debian/dev  _CODENAME_ main
-#deb [${EXTRA_APT_COMMON_CONF}] https://${REPO_OWNER}.github.io/sparrow-hawk-debian/next _CODENAME_ main
 deb [${EXTRA_APT_COMMON_CONF}] https://${REPO_OWNER}.github.io/sparrow-hawk-debian/${BRANCH} _CODENAME_ main
 "
 GPG_KEY_URL="https://${REPO_OWNER}.github.io/sparrow-hawk-debian/sparrow-hawk-repo.asc"
