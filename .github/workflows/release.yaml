@@ -114,6 +114,7 @@ jobs:
           git add .
           git commit -m "Update APT repo"
           git push --force origin ${APT_BRANCH}
+          zip -ry -s 1900m ${GITHUB_WORKSPACE}/repo.zip ../${BRANCH}
         env:
           GPG_TTY: $(tty)
           GPG_PUBLIC_KEY: ${{ secrets.GPG_PUBLIC_KEY }}
@@ -267,6 +268,7 @@ jobs:
           files: |
             ./build_image/build_debian_image/*.img.gz
             ./build_deb.zip*
+            ./repo.zip*
           body_path: ${{ github.workspace }}-release_msg.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
