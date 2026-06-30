@@ -12,5 +12,6 @@ Package: sparrow-hawk-kernel-module-cmemdrv
 Architecture: all
 Provides: cmemdrv-modules
 Depends: ${misc:Depends},
-    dkms
+    build-essential,
+    dkms,
 Description: cmem driver for Sparrow Hawk kernel
