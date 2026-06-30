@@ -1,2 +1,56 @@
 # sparrow-hawk-debian
-Debian based BSP development
+
+Debian-based BSP for the Sparrow Hawk board.
+
+This repository builds Debian packages, publishes them as an APT repository via GitHub Pages, and produces a bootable Debian OS image.
+
+## APT Repository
+
+The APT repository is available at:
+
+```
+https://rcar-community.github.io/sparrow-hawk-debian/<channel>
+```
+
+Two channels are provided:
+
+| Channel | Branch | Description |
+|---------|--------|-------------|
+| `main`  | main   | Stable releases |
+| `dev`   | dev    | Latest development builds |
+
+## Pre-built OS Image
+
+Download the latest image from the Releases page.:
+
+## Build Locally
+
+### Build the OS image
+
+#### Using docker
+
+```bash
+./setup_docker_image.sh
+./build_image/build_debian_image/build_with_docker_sparrow-hawk.sh
+```
+
+Requires Docker. The script builds a `debian-host-builder` image automatically and runs the build inside it.
+
+#### Without docker
+
+Note:
+You need to prepare host pc to build debian image.
+There is no guide but dockerfiles may be helpful.
+
+```bash
+./build_image/build_debian_image/build_debian_for_sparrow-hawk.sh
+```
+
+## Repository Structure
+
+```
+build_deb/          # Debian package sources and build scripts
+build_image/        # OS image build scripts
+_dev/               # Docker build environments
+```
+
