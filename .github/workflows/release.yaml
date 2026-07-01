@@ -199,7 +199,7 @@ jobs:
 
           ### Source/License
 
-          Sparrow Hawk dedicated deb package: Please check this reposotiry.
+          Sparrow Hawk dedicated deb package: Please check build_deb.zip in this release.
           others: Please check deb-src by using apt. Debian default packages are used in this image.
 
           EOS
